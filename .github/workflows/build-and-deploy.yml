@@ -10,6 +10,7 @@ jobs:
       - name: 📥 Checkout repository data
         uses: actions/checkout@v3
         with:
+          persist-credentials: false
           ref: "main"
           fetch-depth: 0
       - name: 🛠 Compile data
