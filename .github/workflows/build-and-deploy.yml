@@ -26,7 +26,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.PAT }}
-          branch: "data"
+          branch: "main"
       - name: 📂 Structure directory
         run: |
           mkdir -p buildEnv/portfolio_data
@@ -38,12 +38,12 @@ jobs:
           ref: "main"
           path: "buildEnv/main"
           token: ${{ secrets.PAT  }}
-      - name: 🔒 Secret env pass
-        run: |
-          echo "ALGOLIA_SEARCH_ADMIN_KEY=${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}" >> buildEnv/portfolio_data/.env.local
       - name: 🛟 Passing data
         run: |
           python buildEnv/portfolio_data/scripts/passData.py
+      - name: 🔒 Secret env pass
+        run: |
+          echo "ALGOLIA_SEARCH_ADMIN_KEY=${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}" >> buildEnv/portfolio_data/.env.local
       - name: 💫 Setup node
         uses: actions/setup-node@v3
         with:
