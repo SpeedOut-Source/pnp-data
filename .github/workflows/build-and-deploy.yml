@@ -45,6 +45,7 @@ jobs:
       - name: 🔒 Secret env pass
         run: |
           echo "ALGOLIA_SEARCH_ADMIN_KEY=${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}" >> buildEnv/portfolio_data/.env.local
+          cat buildEnv/portfolio_data/.env.local
       - name: 💫 Setup node
         uses: actions/setup-node@v3
         with:
