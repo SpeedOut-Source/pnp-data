@@ -30,7 +30,7 @@ jobs:
       - name: 📂 Structure directory
         run: |
           mkdir -p buildEnv/portfolio_data
-          rsync -av --include='.env.local' --exclude='buildEnv' * buildEnv/portfolio_data/
+          rsync -av --include='.*' --exclude='buildEnv' * buildEnv/portfolio_data/
       - name: 📥 Checkout repository PNP
         uses: actions/checkout@v3
         with:
