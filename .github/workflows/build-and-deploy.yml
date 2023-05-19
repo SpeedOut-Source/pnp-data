@@ -44,7 +44,8 @@ jobs:
           python buildEnv/portfolio_data/scripts/passData.py
       - name: 🔒 Secret env pass
         run: |
-          printf "\nALGOLIA_SEARCH_ADMIN_KEY=${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}" >> buildEnv/portfolio_data/.env.local
+          printf "\n\nALGOLIA_SEARCH_ADMIN_KEY=${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}" >> buildEnv/portfolio_data/.env.local
+          cat buildEnv/portfolio_data/.env.local
       - name: 💫 Setup node
         uses: actions/setup-node@v3
         with:
