@@ -38,7 +38,7 @@ jobs:
           repository: SpeedOut-Source/pnp
           ref: "main"
           path: "buildEnv/main"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
       - name: 🔒 Secret env pass
         run: |
           printf "\nALGOLIA_SEARCH_ADMIN_KEY=${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}" >> buildEnv/portfolio_data/.env.local
@@ -66,6 +66,5 @@ jobs:
       - name: 🚀 Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: buildEnv/main/out
           publish_branch: gh-pages
