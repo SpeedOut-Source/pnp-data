@@ -21,7 +21,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git diff --quiet && git diff --staged --quiet || git commit -am "${{ github.event.head_commit.message }}"
+          git diff --quiet && git diff --staged --quiet || git add . && git commit -m "${{ github.event.head_commit.message }}"
           git status
       - name: 📤 Push changes
         uses: ad-m/github-push-action@master
