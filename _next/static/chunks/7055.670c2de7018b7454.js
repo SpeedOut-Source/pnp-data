@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[7055],{77055:function(n,e,t){t.r(e),t.d(e,{default:function(){return u}});var r=t(85893);function u(n){let{date:e}=n;return(0,r.jsx)("span",{children:new Date(e).toLocaleString("en-US",{month:"short",day:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"})})}}}]);
