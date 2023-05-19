@@ -10,7 +10,6 @@ jobs:
       - name: 📥 Checkout repository data
         uses: actions/checkout@v3
         with:
-          persist-credentials: true
           ref: "main"
           fetch-depth: 0
       - name: 🛠 Compile data
@@ -27,7 +26,6 @@ jobs:
       - name: 📤 Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: "main"
       - name: 📂 Structure directory
         run: |
