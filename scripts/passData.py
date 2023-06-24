@@ -2,7 +2,7 @@ import shutil
 import sys
 import os
 
-DATA_PATH = "buildEnv/portfolio_data"
+DATA_PATH = "buildEnv/pnp-data"
 PROJECT_PATH = "buildEnv/main"
 META_TAG_CHANGE_KEY = r"{/* ADD-META-TAGS */}"
 

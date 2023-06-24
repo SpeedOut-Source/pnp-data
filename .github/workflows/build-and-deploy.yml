@@ -41,7 +41,7 @@ jobs:
           token: ${{ secrets.PAT }}
       - name: 🔒 Secret env pass
         run: |
-          printf "\nALGOLIA_SEARCH_ADMIN_KEY=${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}" >> buildEnv/portfolio_data/.env.local
+          printf "\nALGOLIA_SEARCH_ADMIN_KEY=${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}" >> buildEnv/pnp-data/.env.local
       - name: 🛟 Passing data
         run: |
           python buildEnv/pnp-data/scripts/passData.py
