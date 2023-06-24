@@ -5,12 +5,12 @@ companyName: SpeedOut Source
 companyLogo: /images/logos/github-profile-dark.png
 date: 1680541759736
 readTime: 2
-imgUrl: /images/all-devices-black-pnp.png
+imgUrl: ../images/all-devices-black-pnp.png
 whatText: Portfolio NextJS Project
 result: This website free and open-source, no hosting fee required, build with NextJS
 ---
 
-![preview](/images/all-devices-black-pnp.png)
+![preview](../images/all-devices-black-pnp.png)
 
 ## Portfolio NextJS Project - PNP
 
