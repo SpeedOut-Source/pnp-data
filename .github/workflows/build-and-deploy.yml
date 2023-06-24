@@ -29,9 +29,9 @@ jobs:
           branch: "main"
       - name: 📂 Structure directory
         run: |
-          mkdir -p buildEnv/portfolio_data
-          mv .env.local buildEnv/portfolio_data/
-          rsync -av --exclude='buildEnv' * buildEnv/portfolio_data/
+          mkdir -p buildEnv/pnp-data
+          mv .env.local buildEnv/pnp-data/
+          rsync -av --exclude='buildEnv' * buildEnv/pnp-data/
       - name: 📥 Checkout repository PNP
         uses: actions/checkout@v3
         with:
@@ -44,7 +44,7 @@ jobs:
           printf "\nALGOLIA_SEARCH_ADMIN_KEY=${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}" >> buildEnv/portfolio_data/.env.local
       - name: 🛟 Passing data
         run: |
-          python buildEnv/portfolio_data/scripts/passData.py
+          python buildEnv/pnp-data/scripts/passData.py
       - name: 💫 Setup node
         uses: actions/setup-node@v3
         with:
