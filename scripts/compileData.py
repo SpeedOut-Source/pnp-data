@@ -7,20 +7,20 @@ import frontmatter
 from bs4 import BeautifulSoup
 from markdown import markdown
 import urllib.parse
+from dotenv import load_dotenv
 
 
 def replaceImgRelativePath(data, wPath):
-    rootConfigPath = 'configs.json'
     imgPattern = r"\.\.\/images\/"
-    if os.path.exists(rootConfigPath):
-        with open(rootConfigPath, 'r') as f:
-            root_configs = json.load(f)
-    if not (root_configs.get('baseImgPath') or root_configs.get('baseUrl') or root_configs.get('repoPath')):
+
+    baseUrl = os.getenv('NEXT_PUBLIC_USER_CONTENT_BASE_URL')
+    baseImgPath = os.getenv('NEXT_PUBLIC_USER_CONTENT_BASE_IMG_PATH')
+    repoPath = os.getenv('NEXT_PUBLIC_REPO_PATH')
+    if not (baseImgPath or baseUrl or repoPath):
         raise Exception('Error: baseImgPath or baseUrl key not found')
         sys.exit(1)
 
-    baseImgUrl = root_configs['baseUrl'] + \
-        root_configs['repoPath'] + root_configs['baseImgPath']
+    baseImgUrl = baseUrl + repoPath + baseImgPath
 
     if re.search(imgPattern, data):
         finalData = re.sub(imgPattern, baseImgUrl, data)
@@ -364,9 +364,10 @@ def companyCompile():
 
 
 if __name__ == '__main__':
+    load_dotenv(".env.local")
     if not os.path.exists('db'):
         os.makedirs("db", exist_ok=True)
-    
+
     print('✨ Parsing projects')
     projectCompile()
     print('✅ Project parse done')
