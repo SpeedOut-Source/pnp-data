@@ -1,6 +1,6 @@
 ---
 title: Twitter
-logoUrl: /images/logos/twitter.png
+logoUrl: https://biplobsd.github.io/images/logos/twitter.png
 homePage: https://biplobsd.github.io
 start: 1651407000000
 end: 1672488660000

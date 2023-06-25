@@ -1,6 +1,6 @@
 ---
 title: Github
-logoUrl: /images/logos/github.png
+logoUrl: https://biplobsd.github.io/images/logos/github.png
 homePage: https://biplobsd.github.io
 start: 1684498260000
 end: 1732968720000

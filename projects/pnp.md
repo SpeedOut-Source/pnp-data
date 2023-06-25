@@ -1,8 +1,8 @@
 ---
 appName: PNP
-appLogo: /images/logos/github-profile-dark.png
+appLogo: https://biplobsd.github.io/images/logos/github-profile-dark.png
 companyName: SpeedOut Source
-companyLogo: /images/logos/github-profile-dark.png
+companyLogo: https://biplobsd.github.io/images/logos/github-profile-dark.png
 date: 1680541759736
 readTime: 2
 imgUrl: https://raw.githubusercontent.com/SpeedOut-Source/pnp-data/main/images/all-devices-black-pnp.png
