@@ -6,7 +6,6 @@ import subprocess
 import frontmatter
 from bs4 import BeautifulSoup
 from markdown import markdown
-import urllib.parse
 from dotenv import load_dotenv
 
 
@@ -16,16 +15,17 @@ def replaceImgRelativePath(data, wPath):
     baseUrl = os.getenv('NEXT_PUBLIC_USER_CONTENT_BASE_URL')
     baseImgPath = os.getenv('NEXT_PUBLIC_USER_CONTENT_BASE_IMG_PATH')
     repoPath = os.getenv('NEXT_PUBLIC_REPO_PATH')
-    if not (baseImgPath or baseUrl or repoPath):
+    dataBranch = os.getenv('NEXT_PUBLIC_REPO_DATA_BRANCH')
+    if not (baseImgPath or baseUrl or repoPath or dataBranch):
         raise Exception('Error: baseImgPath or baseUrl key not found')
         sys.exit(1)
 
-    baseImgUrl = baseUrl + repoPath + baseImgPath
+    baseImgUrl = baseUrl + repoPath + "/" + dataBranch + baseImgPath
 
     if re.search(imgPattern, data):
         finalData = re.sub(imgPattern, baseImgUrl, data)
 
-        with open(wPath, 'w') as w:
+        with open(wPath, 'w', encoding="utf8") as w:
             w.write(finalData)
 
         return finalData
@@ -164,7 +164,7 @@ def projectCompile():
         if filename.endswith(".md"):
             file_path = os.path.join(FOLDER_PATH, filename)
 
-            with open(file_path, "r") as f:
+            with open(file_path, "r", encoding="utf8") as f:
                 md_text = f.read()
 
             md_text = replaceImgRelativePath(md_text, file_path)
@@ -219,7 +219,7 @@ def blogsCompile():
         if filename.endswith(".md"):
             file_path = os.path.join(FOLDER_PATH, filename)
 
-            with open(file_path, "r") as f:
+            with open(file_path, "r", encoding="utf8") as f:
                 md_text = f.read()
 
             md_text = replaceImgRelativePath(md_text, file_path)
@@ -269,7 +269,7 @@ def appsCompile():
         if filename.endswith(".md"):
             file_path = os.path.join(FOLDER_PATH, filename)
 
-            with open(file_path, "r") as f:
+            with open(file_path, "r", encoding="utf8") as f:
                 md_text = f.read()
 
             md_text = replaceImgRelativePath(md_text, file_path)
@@ -323,7 +323,7 @@ def companyCompile():
         if filename.endswith(".md"):
             file_path = os.path.join(FOLDER_PATH, filename)
 
-            with open(file_path, "r") as f:
+            with open(file_path, "r", encoding="utf8") as f:
                 md_text = f.read()
 
             md_text = replaceImgRelativePath(md_text, file_path)
